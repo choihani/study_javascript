@@ -104,21 +104,46 @@
   // Q7. make an array containing only the students' scores
   // result should be: [45, 80, 90, 66, 88]
   {
-    const result = students.filter((student) => student.score);
+    //답안
+    const result = students.map((student) => student.score);
     console.log(result);
   }
   
   // Q8. check if there is a student with the score lower than 50
   {
+    console.clear();    
+    //답안 //some 하나라도 만족하는게 있으면 true
+    const result = students.some((student) => student.score < 50);
+    console.log(result);
+    
+    //every 모든 학생들이 조건에 해당한다면 true
+    const result2 = !students.every((student) => student.score >= 50);
+    console.log(result2);
   }
   
+  console.clear();  
   // Q9. compute students' average score
   {
+    console.clear();
+    // const result = students.reduceRight((prev, curr) => {
+    const result = students.reduce((prev, curr) => {
+      console.log('-----------');
+      console.log(prev);
+      console.log(curr);
+      return prev + curr.score;
+    },0);
+    console.log(result);
+    
+    const result2 = students.reduce((prev, curr) => prev + curr.score, 0);
+    console.log(result2 / students.length);
   }
   
+  console.clear();
   // Q10. make a string containing all the scores
   // result should be: '45, 80, 90, 66, 88'
   {
+    const result = students.reduce((prev, curr) => prev + curr.score+", ","");
+    console.log(result);
   }
   
   // Bonus! do Q10 sorted in ascending order
