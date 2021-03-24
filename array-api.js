@@ -1,4 +1,5 @@
 // Q1. make a string out of an array
+// join 함수 : 배열을 string 값으로 바꿔줌
 {
     const fruits = ['apple', 'banana', 'orange'];
 
@@ -15,6 +16,7 @@
   }
   
   // Q2. make an array out of a string
+  // split 함수 : string을 구분자를 통해 배열로 만들어서 반환
   {
     const fruits = '🍎, 🥝, 🍌, 🍒';
 
@@ -25,6 +27,7 @@
   }
   
   // Q3. make this array look like this: [5, 4, 3, 2, 1]
+  // reverse 함수 : 배열 자체의 순서가 바뀜
   {
     const array = [1, 2, 3, 4, 5];
 
@@ -33,6 +36,7 @@
   }
   
   // Q4. make new array without the first two elements
+  // sclice 함수
   {
     const array = [1, 2, 3, 4, 5];
 
@@ -66,6 +70,7 @@
   ];
   
   // Q5. find a student with the score 90
+  // find 함수 : 첫번째인자가 콜백함수로 조건에 맞는 값을 찾아서 보내줌
   {
     // 내 답안
     console.clear();
@@ -85,6 +90,7 @@
   }
   
   // Q6. make an array of enrolled students
+  // filter 함수 : 값이 true인것만 반환해주는 함수
   {
     console.clear();
 
@@ -103,6 +109,7 @@
   
   // Q7. make an array containing only the students' scores
   // result should be: [45, 80, 90, 66, 88]
+  // callback 함수가 return 하는 값으로 새로운 배열을 만들어서 리턴
   {
     //답안
     const result = students.map((student) => student.score);
@@ -142,11 +149,23 @@
   // Q10. make a string containing all the scores
   // result should be: '45, 80, 90, 66, 88'
   {
-    const result = students.reduce((prev, curr) => prev + curr.score+", ","");
+    // const result = students.reduce((prev, curr) => prev + curr.score+", ","");
+    // console.log(result);
+
+    const result = students
+      .map((student) => student.score)
+      // .filter((score) => score >= 50)
+      .join();
     console.log(result);
   }
   
+  console.clear();
   // Bonus! do Q10 sorted in ascending order
   // result should be: '45, 66, 80, 88, 90'
   {
+    const result = students
+      .map((student) => student.score)
+      .sort((a,b) => a-b)
+      .join();
+    console.log(result);
   }
